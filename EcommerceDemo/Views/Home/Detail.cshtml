@@ -1,0 +1,35 @@
+﻿@model EcommerceDemo.Models.Product
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<h2>Detail</h2>
+
+div class="container">
+<div class="page-header clearfix detailHeading">
+    <h2 class="text-muted">View Product Item</h2>
+</div>
+
+<div class="jumbotron">
+    <div class="row">
+        <div>
+            <img class="detailImage" src="@Model.ImageUrl" />
+        </div>
+        <div class="col-md-4">
+            <p id="itemTitle">@Model.Name</p>
+            <p id="itmeAuthor">@Model.Description</p>
+            <p id="itemStatus">@Model.Price</p>
+            <p id="itemLocation">@Model.IsInStock</p>
+        </div>
+
+    </div>
+    <div class="addToCart">
+
+      
+
+        <p> <a class="btn btn-lg btn-info" role="button" asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-id="@Model.Id">Add to Cart</a></p>
+
+    </div>
+
+
+</div>

@@ -1,0 +1,52 @@
+﻿@model EcommerceDemo.ViewModels.ShoppingCartViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+<h2>Shopping Cart: All your Product you love</h2>
+<table class="table table-bordered table-striped">
+    <thead>
+        
+        <tr>
+            
+          
+            <th>Product Name </th>
+            <th>Quanitiy</th>
+            <th>Price</th>
+            <th>Total</th>
+            <th>SubTotal</th>
+
+         </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ShoppingCart.ShoppingCartItems)
+        {
+        <tr>
+
+            <td class="text-center">
+                @item.Product.Name
+            </td>
+
+            <td class="text-left">@item.Quantity</td>
+            <td class="text-left">@item.Product.Price.ToString("c")</td>
+            <td class="text-right">
+                @((item.Quantity * item.Product.Price).ToString("c"))
+            </td>
+
+
+        </tr>
+    }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4" class="text-right">Total</td>
+            <td class="text-right">@Model.ShoppingCartTotal.ToString("c")</td>
+        </tr>
+    </tfoot>
+</table>
+
+<div class="text-center">
+    <a class="btn btn-primary" asp-controller="ShoppingCart" asp-action="ClearCart">Clear Cart</a>
+    <a class="btn btn-primary" asp-controller="Order" asp-action="CheckOut">Checkout</a>
+</div>
+

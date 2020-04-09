@@ -1,0 +1,53 @@
+﻿@model EcommerceDemo.Models.Order
+@{
+    ViewData["Title"] = "CheckOut";
+}
+
+<h2>CheckOut</h2>
+
+
+<form asp-action="CheckOut" method="Post" class="form-horizontal" role="form">
+    <h4>You're one step away from ordering awesome Product</h4>
+
+    <div asp-validation-summary="All" class="danger"></div>
+
+    <div class="form-group">
+        <label asp-for="Name" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="danger"></span>
+        </div>
+    </div>
+
+   
+
+    <div class="form-group">
+        <label asp-for="Address" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="Address" class="form-control" />
+            <span asp-validation-for="Address" class="danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="City" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="City" class="form-control" />
+            <span asp-validation-for="City" class="danger"></span>
+        </div>
+    </div>
+    
+    
+    <div class="form-group">
+        <label asp-for="PhoneNumber" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="PhoneNumber" class="form-control" />
+            <span asp-validation-for="PhoneNumber" class="danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-5">
+            <input type="submit" class="btn btn-primary" value="Complete Order" />
+        </div>
+    </div>
+</form>
